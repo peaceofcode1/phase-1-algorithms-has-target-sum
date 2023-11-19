@@ -4,11 +4,37 @@ function hasTargetSum(array, target) {
 
 /* 
   Write the Big O time complexity of your function here
+  
 */
+function hasTargetSum(array, target) {
+  const visitedNumbers = {};
+
+  for (let i = 0; i < array.length; i++) {
+    const difference = target - array[i];
+    if (visitedNumbers[difference]) {
+      return true;
+    }
+    visitedNumbers[array[i]] = true;
+  }
+
+  return false;
+}
 
 /* 
   Add your pseudocode here
+  Function hasTargetSum(array, target):
+    Create an empty object called visitedNumbers
+
+    Iterate through the array using a for-loop
+        Calculate the difference needed to reach the target sum (difference = target - array[i])
+        Check if the difference exists in the visitedNumbers object
+            If exists, return true
+        Add the current number to the visitedNumbers object
+
+    Return false (no pair found that sums up to the target)
+
 */
+
 
 /*
   Add written explanation of your solution here
